@@ -1,9 +1,9 @@
 var start = require('./start.js');
 
-var mazeWidth = 16,
-    mazeHeight = 16;
+var mazeWidth = 15,
+    mazeHeight = 20;
 
-start(mazeHeight, mazeWidth);
+start(mazeWidth, mazeHeight, "Fluttershy");
 
 
 

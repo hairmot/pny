@@ -16,7 +16,7 @@ module.exports = function move(state) {
             var newMoves = [...moves, node],
                 thisNode = queue[node]
             if (thisNode.end) {
-                var direction = directions.getNextDirectionFromOptimalMoves([newMoves[0], newMoves[1]]);
+                var direction = directions.getNextDirectionFromOptimalMoves([newMoves[0], newMoves[1]], state.size);
             
                 api.update(direction, state.maze_id).then(function () { 
                     return api.request("GET", state.maze_id)
@@ -25,7 +25,7 @@ module.exports = function move(state) {
                     return api.request("GET", state.maze_id + '/print');
                 }).then(function(grid) {
                     console.log(grid);
-                    if(currentState['game-state']['state'] != "active") {
+                    if(currentState['game-state']['state'].toLowerCase() != "active" ) {
                         console.log(currentState);
                     }
                     else {
