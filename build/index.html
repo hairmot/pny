@@ -1,0 +1,17 @@
+<script>
+    function go() {
+        w = new Worker("bundle.js");
+        w.onmessage = function(event){
+           
+                document.getElementById("result").innerHTML = event.data.grid || 'complete';
+                document.getElementById("status").innerHTML = event.data.state || '';
+        };
+    }
+</script>
+<button onClick="go()">Go </button> &nbsp; <span id="status"></span>
+<pre id="result">
+
+</pre>
+<span id="status">
+
+</span>

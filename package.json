@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify ./index.js -o ./build/bundle.js",
+    "start": "serve -s ./build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^1.7.2"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "serve": "^6.0.6"
   }
 }

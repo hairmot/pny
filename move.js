@@ -24,9 +24,9 @@ module.exports = function move(state) {
                     currentState = JSON.parse(data);
                     return api.request("GET", state.maze_id + '/print');
                 }).then(function(grid) {
-                    console.log(grid);
+                    postMessage({grid});
                     if(currentState['game-state']['state'].toLowerCase() != "active" ) {
-                        console.log(currentState);
+                        postMessage({state : currentState['game-state']['state']});
                     }
                     else {
                         move(currentState, state.maze_id);
